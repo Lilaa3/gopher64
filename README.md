@@ -1,4 +1,13 @@
-# gopher64
+# This fork does one thing, and one thing only, compile with base x86_64.
+
+![](justonemore.png)
+
+Image above is a joke, I understand fully why v3 makes sense for a project heavily relying on IPC to be good.
+However, it is stupid to ask people everyone with competent hardware to compile stuff themselves for a minor performance boost.
+
+Also the creator of gopher, Logan, is really cool and you should donate to them if you can, don't take my frustration the wrong way.
+
+# gopher64 (but it respects your hardware)
 Gopher64 is a cross-platform N64 emulator. Some notable features:
 * Netplay
 * Homebrew support
@@ -11,21 +20,11 @@ Gopher64 is a cross-platform N64 emulator. Some notable features:
 
 ## download
 
-<a href="https://loganmc10.itch.io/gopher64"><img src="https://static.itch.io/images/badge.svg" width="200" ></a>
-
 Windows:
-* Standalone executable: [gopher64-windows-x86_64.exe](https://github.com/gopher64/gopher64/releases/latest/download/gopher64-windows-x86_64.exe)
-
-MacOS:
-* App Bundle: [gopher64-macos-aarch64.zip](https://github.com/gopher64/gopher64/releases/latest/download/gopher64-macos-aarch64.zip)
-* Homebrew: `brew install --cask gopher64`
+* Standalone executable: [gopher64-windows-x86_64.exe](https://github.com/Lilaa3/gopher64/releases/latest/download/gopher64-windows-x86_64.exe)
 
 Linux:
-* Standalone executable: [gopher64-linux-x86_64](https://github.com/gopher64/gopher64/releases/latest/download/gopher64-linux-x86_64)
-* Flatpak: `flatpak install flathub io.github.gopher64.gopher64`
-
-Android:
-* APK: [gopher64-android.apk](https://github.com/gopher64/gopher64/releases/latest/download/gopher64-android.apk)
+* Standalone executable: [gopher64-linux-x86_64](https://github.com/Lilaa3/gopher64/releases/latest/download/gopher64-linux-x86_64)
 
 ## wiki
 
@@ -47,17 +46,9 @@ Gopher64 supports netplay (online play with others) via cloud hosted servers. Yo
 
 If you would like to keep all the game data in the same folder as the executable, you just need to create a file called "portable.txt" in the same directory as the executable.
 
-## flatpak
-
-If you want to run the flatpak from the command line, you need to add the `--filesystem=host:ro` option, for example:
-
-```
-flatpak run --filesystem=host:ro io.github.gopher64.gopher64 /path/to/rom.z64
-```
-
 ## building and usage
 
-1. Linux only: [install the SDL3 dependencies](https://wiki.libsdl.org/SDL3/README-linux#build-dependencies)
+1. Linux only: [install the SDL3 dependencies](https://wiki.libsdl.org/SDL3/README-linux#build-dependencies). You may also need llvm and the fontconfig dev library. Look for the equivalents on your distro, for opensuse those would be `fontconfig-devel` and `llvm`
 2. [Install rust](https://www.rust-lang.org/tools/install)
 3. `git clone --recursive https://github.com/gopher64/gopher64.git`
 4. `cd gopher64`
@@ -66,16 +57,8 @@ flatpak run --filesystem=host:ro io.github.gopher64.gopher64 /path/to/rom.z64
 
 ## contributing
 
-I am very open to contributions! Please contact me via a GitHub issue or Discord (loganmc10) before doing substantial work on a PR.
+I will only accept contributions to maintain this, code changes are intended to go to the actual project, don't submit issues to the base repo that you or someone can't repro in the original repo itself.
 
 ## license
 
 Gopher64 is licensed under the GPLv3 license. Many portions of gopher64 have been adapted from mupen64plus and/or ares. The license for mupen64plus can be found [here](https://github.com/mupen64plus/mupen64plus-core/blob/master/LICENSES). The license for ares can be found [here](https://github.com/ares-emulator/ares/blob/master/LICENSE).
-
-## privacy and code signing policy
-
-Free code signing for the Windows release is provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org).
-
-During online netplay sessions, the server logs your IP address and basic session information (game title and session name) for operational purposes. No additional personal data is collected or stored.
-
-If you enable the RetroAchievements feature, some data is sent to their systems. Please see their terms [here](https://retroachievements.org/terms).
