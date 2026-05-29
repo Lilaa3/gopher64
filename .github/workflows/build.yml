@@ -14,7 +14,6 @@ on:
 env:
   CARGO_TERM_COLOR: always
   RA_HARDCORE: ${{ github.ref_type == 'tag' && 'true' || 'false' }}
-  NETPLAY_ID: ${{ github.ref_type == 'tag' && secrets.NETPLAY_ID || 'dev' }}
   BUILD_PROFILE: ${{ github.ref_type == 'tag' && 'release' || 'dev' }}
   BUILD_DIR: ${{ github.ref_type == 'tag' && 'release' || 'debug' }}
 
@@ -198,15 +197,3 @@ jobs:
         with:
           draft: true
           files: release-artifacts/*
-      - name: Setup butler
-        uses: remarkablegames/setup-butler@v3
-      - name: Upload to itch.io
-        run: |
-          butler push release-artifacts/gopher64-linux-x86_64 loganmc10/gopher64:linux-x86_64 --userversion ${GITHUB_REF_NAME#v}
-          butler push release-artifacts/gopher64-linux-aarch64 loganmc10/gopher64:linux-aarch64 --userversion ${GITHUB_REF_NAME#v}
-          butler push release-artifacts/gopher64-windows-x86_64.exe loganmc10/gopher64:windows-x86_64 --userversion ${GITHUB_REF_NAME#v}
-          butler push release-artifacts/gopher64-windows-aarch64.exe loganmc10/gopher64:windows-aarch64 --userversion ${GITHUB_REF_NAME#v}
-          butler push release-artifacts/gopher64-macos-aarch64.zip loganmc10/gopher64:macos-aarch64 --userversion ${GITHUB_REF_NAME#v}
-          butler push release-artifacts/gopher64-android.apk loganmc10/gopher64:android --userversion ${GITHUB_REF_NAME#v}
-        env:
-          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
