@@ -60,16 +60,8 @@ If you would like to keep all the game data in the same folder as the executable
 
 ## contributing
 
-I am very open to contributions! Please contact the creator via a GitHub issue or Discord (loganmc10) before doing substantial work on a PR.
+I will only accept contributions to maintain this, code changes are intended to go to the actual project, don't submit issues to the base repo that you or someone can't repro in the original repo itself.
 
 ## license
 
 Gopher64 is licensed under the GPLv3 license. Many portions of gopher64 have been adapted from mupen64plus and/or ares. The license for mupen64plus can be found [here](https://github.com/mupen64plus/mupen64plus-core/blob/master/LICENSES). The license for ares can be found [here](https://github.com/ares-emulator/ares/blob/master/LICENSE).
-
-## privacy and code signing policy
-
-Free code signing for the Windows release is provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org).
-
-During online netplay sessions, the server logs your IP address and basic session information (game title and session name) for operational purposes. No additional personal data is collected or stored.
-
-If you enable the RetroAchievements feature, some data is sent to their systems. Please see their terms [here](https://retroachievements.org/terms).
